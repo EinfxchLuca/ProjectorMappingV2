@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projector Mapping — Static</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header id="topbar">
+      <div class="left">
+        <button id="playBtn" title="Play">▶</button>
+        <button id="stopBtn" title="Stop">⏹</button>
+        <button id="fullscreenBtn" title="Fullscreen">⤢</button>
+        <button id="exportBtn" title="Export JSON">⬇</button>
+        <button id="importBtn" title="Import JSON">⬆</button>
+        <input id="importFile" type="file" accept="application/json" style="display:none">
+      </div>
+      <div class="center">Projector Mapping — Static</div>
+      <div class="right">
+        <label class="switch"><input type="checkbox" id="gridToggle"><span>Grid</span></label>
+      </div>
+    </header>
+
+    <aside id="leftbar">
+      <h3>Tools</h3>
+      <button id="tool_select" class="tool active">Select</button>
+      <button id="tool_rect" class="tool">Rect</button>
+      <button id="tool_poly" class="tool">Polygon</button>
+      <button id="tool_triangle" class="tool">Triangle</button>
+      <button id="tool_circle" class="tool">Circle</button>
+      <hr>
+      <h3>Edit</h3>
+      <button id="btn_addVertex">Add vertex</button>
+      <button id="btn_delVertex">Delete vertex</button>
+      <hr>
+      <h3>Layers</h3>
+      <div id="layers"></div>
+    </aside>
+
+    <main id="stageWrap">
+      <canvas id="stage"></canvas>
+      <div id="overlayInfo" class="hint">Drop image/video on a shape to assign media</div>
+    </main>
+
+    <aside id="rightbar">
+      <h3>Properties</h3>
+      <div class="prop"><label>Opacity <input id="prop_opacity" type="range" min="0" max="1" step="0.01" value="1"></label></div>
+      <div class="prop"><label>Rotation <input id="prop_rotation" type="range" min="-180" max="180" step="1" value="0"></label></div>
+      <div class="prop"><label>Scale <input id="prop_scale" type="range" min="0.1" max="3" step="0.01" value="1"></label></div>
+      <div class="prop"><button id="btn_toFront">Bring to front</button><button id="btn_toBack">Send to back</button></div>
+      <hr>
+      <h4>Selected</h4>
+      <div id="selectedInfo">None</div>
+    </aside>
+
+    <footer id="status">Ready</footer>
+  </div>
+
+  <input id="fileInput" type="file" accept="image/*,video/*" style="display:none">
+  <script src="app.js"></script>
+</body>
+</html>
